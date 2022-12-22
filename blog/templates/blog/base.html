@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+    <meta name="author" content="Afyapage">
+    <meta name="description" content="Afyapage est une plateforme immobilière où vous pouvez partager ou rechercher rapidement des propriétés à louer ou à vendre à Bangui à un prix abordable.">
+
+    <link rel="icon" type="image/x-icon" class="rounded" href="{% static 'blog/images/favicon.png' %}"/>
+
+
+    {% if title %}
+        <title>Afyapage - {{title}}</title>
+    {% else %}
+        <title>Afyapage</title>
+    {% endif %}
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="{% static 'blog/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/css/customs.css' %}" media="screen,projection">
+
+</head>
+<body class="grey lighten-4">
+    <!-- navbar section -->
+    {% include 'blog/navbar.html' %}
+
+    <!-- contents section -->
+    <div class="section scrollspy">
+        {% if messages %}
+            {% for message in messages %}
+                <p class="light blue-text {{message.tages}} center">{{message}}</p>
+            {% endfor%}
+        {% endif %}
+
+        {% block content %}{% endblock %} 
+    </div>
+
+    <!-- footer section -->
+    {% include 'blog/footer.html' %}
+
+
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="{% static 'blog/js/materialize.js' %}"></script>
+    <script src="{% static 'blog/js/init.js' %}"></script>
+    <script src="{% static 'blog/js/masonry.pkgd.min.js' %}"></script>
+
+    <script type="text/javascript">
+        // Modal Content
+        document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('.modal');
+          var instances = M.Modal.init(elems, options);
+        });
+
+        // Or with jQuery
+
+        $(document).ready(function(){
+          $('.modal').modal();
+        })
+    </script>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.slider');
+            var instances = M.Slider.init(elems, options);
+        });
+
+        // Or with jQuery
+        $(document).ready(function(){
+            $('.slider').slider();
+        });
+    </script>
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, options);
+          });
+          // Or with jQuery
+          $(document).ready(function(){
+            $('select').formSelect();
+        });
+    </script>
+
+    <script type="text/javascript">
+        const input = document.querySelector('#productImages');
+        input.addEventListener('change', () => {
+            if (input.files.length > 5) {
+                alert('You can only select a maximum of 5 files.');
+                input.value = '';
+            } else{
+                input.value = input.files.length;
+            }
+        });
+    </script>
+
+  </body>
+</html>

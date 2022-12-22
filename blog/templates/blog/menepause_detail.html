@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<div class="container">
+  <ul class="tabs tabs-fixed-width tabs-swipe-demo">
+    <li class="tab col s3"><a class="blue-text" href="{% url 'menopause_update' obj.id %}"><i class="material-icons">edit</i>Edit</a></li>
+    <li class="tab col s3"><a class="red-text" href="{% url 'menopause_delete' obj.id %}"><i class="material-icons">delete</i>Delete</a></li>
+    <li class="tab col s3"><a class="blue-grey-text" href="#"><i class="material-icons">account_circle</i>Profile</a></li>
+  </ul>
+
+  <div class="col s12 m8 l8 xl8">
+    <div class="card-panel z-depth-0 blue-grey darken-4 white-text">
+      <div class="card-content">
+        <h5 class="card-title">Start Date</h5>
+        <p class="light">{{obj.start_date|date}}</p>
+        <h5 class="card-title">End Date</h5>
+        <p class="light">{{obj.end_date|date}}</p>
+        <h5 class="card-title">Symptoms</h5>
+        <p class="light">{{obj.symptoms|capfirst|linebreaks}}</p>
+        <h5 class="card-title">Hormonal Changes</h5>
+        <p class="light">{{obj.hormonal_changes|capfirst|linebreaks}}</p>
+        <h5 class="card-title">Lifestyle Changes</h5>
+        <p class="light">{{obj.lifestyle_changes|capfirst|linebreaks}}</p>
+      </div>
+    </div>
+    <a href="{% url 'menopause_list' %}" class="btn waves-effect waves-light z-depth-0 blue-grey darken-4">Back to List</a>
+  </div>
+</div>
+
+{% endblock %}
+

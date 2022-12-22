@@ -1,0 +1,47 @@
+.slider .btn {
+  margin-top: 20px;
+}
+
+.section-search input {
+  padding: 5px !important;
+  font-size: 18px !important;
+  width: 90% !important;
+  border: #f4f4f4 3px solid !important;
+}
+
+.section-content h5 {
+  margin-bottom: 30px;
+}
+
+
+/*MAP STYLE*/
+.map-responsive{
+  overflow:hidden;
+  padding-bottom:50%;
+  position:relative;
+  height:0;
+}
+
+.map-responsive iframe{
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
+
+/*FIELDS FORM*/
+input, textarea {
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  color: black;
+  font-size: 16px;
+  resize: none;
+}
+
+textarea {
+  height: 200px;
+}

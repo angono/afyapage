@@ -1,0 +1,73 @@
+{% load static %}
+<nav class="white z-depth-0" role="navigation">
+  <div class="nav-wrapper container z-depth-0">
+    <a id="logo-container" href="{% url 'homepage_list' %}" class="brand-logo teal-text">
+      <img class="circle grey" src="{% static 'blog/images/favicon.png' %}" height="50" style="margin-top: 4px;">
+    </a>
+
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#modal1" data-target="modal1" class="modal-trigger blue-grey-text"><i class="material-icons">search</i></a></li>
+
+      <li><a href="{% url 'homepage_list' %}">Homepage</a></li>
+      {% if request.user.is_authenticated %}
+        <li><a href="#">Logout</a></li>
+      {% else %}
+        <li><a href="{% url 'homepage_list' %}">Login</a></li>
+        <li><a href="{% url 'homepage_list' %}">Register</a></li>
+      {% endif %}
+
+    </ul>
+    <ul id="nav-mobile" class="sidenav">
+      <li>
+        <div class="user-view">
+          <div class="background blue-grey darken-4"></div>
+          <a href="{% url 'homepage_list' %}"><img src="{% static 'blog/assets/favicon.ico' %}" class="circle"></a>
+
+          {% if user.get_username %}
+            <a href="{% url 'homepage_list' %}"><span class="white-text name">{{user.get_username|title}}</span></a>
+
+            <a href="{% url 'homepage_list' %}"><span class="white-text email">{{user.email}}</span></a>
+          {% else %}
+            <a href="{% url 'homepage_list' %}"><span class="white-text name">Afyapage</span></a>
+          {% endif %}
+        </div>
+      </li>
+
+      <li><a href="{% url 'pregnancy_list' %}"><i class="material-icons">home</i>Homepage</a></li>
+
+      <div class="divider"></div>
+      <li><a href="{% url 'homepage_list' %}"><i class="material-icons">info</i>About</a></li>
+      <li><a href="{% url 'homepage_list' %}"><i class="material-icons">contacts</i>Contact</a></li>
+      <li><a href="{% url 'homepage_list' %}"><i class="material-icons">help</i>FAQs</a></li>
+
+      <div class="divider"></div>
+      {% if request.user.is_authenticated %}
+        <li><a href="{% url 'homepage_list' %}"><i class="material-icons">logout</i>Logout</a></li>
+      {% else %}
+        <li><a href="{% url 'homepage_list' %}"><i class="material-icons">login</i>Login</a></li>
+        <li><a href="{% url 'homepage_list' %}"><i class="material-icons">save</i>Register</a></li>
+      {% endif %}
+    </ul>
+    <a href="{% url 'homepage_list' %}" data-target="nav-mobile" class="sidenav-trigger">
+      <i class="material-icons">menu</i>
+    </a>
+  </div>
+
+  <!-- Search bar-->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <form method="GET" action="{% url 'homepage_list' %}">
+        <div class="input-field form-styling">
+          <input type="text" name="qproduct" value="{{request.GET.qproduct}}" placeholder="Search for something...">
+        </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn left waves-effect waves-light z-depth-0 grey darken-2">Search</button>
+        <a href="#" class="modal-close btn waves-effect waves-light z-depth-0 red">Close</a>
+      </div>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+

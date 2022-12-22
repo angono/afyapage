@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %} 
+{% block content %}
+
+<div class="container">
+  <div class="card-panel z-depth-0">
+    <div class="nav-wrapper">
+      <form method="POST" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-field">
+          {{form|crispy}}
+        </div>
+        <button class="btn waves-effect waves-light z-depth-0" type="Submit" name="action">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+

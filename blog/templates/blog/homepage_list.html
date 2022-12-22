@@ -1,0 +1,75 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+
+<div class="container">
+  <ul class="tabs tabs-fixed-width tabs-swipe-demo">
+    <li class="tab col s3"><a class="blue-grey-text" href="#"><i class="material-icons">notifications</i>Notifications</a></li>
+    <li class="tab col s3"><a class="blue-grey-text" href="#"><i class="material-icons">account_circle</i>Profile</a></li>
+    <li class="tab col s3"><a class="blue-grey-text" href="#"><i class="material-icons">contacts</i>Contacts</a></li>
+  </ul>
+
+  <div class="card-panel z-depth-0">
+    <div class="card-content">
+      <span class="blue-text">About us</span>
+
+      <h5 class="card-title">{{about_obj.title}}</h5>
+      <p>{{about_obj.content}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="container center">
+  <div class="row gallery">
+    <a href="{% url 'menstruation_list' %}" class="col s12 m6 l4 xl4 gallery-item">
+      <div class="card-panel z-depth-0 blue-grey darken-4">
+        <div class="card-content">
+          <h5 class="card-title white-text">Menstruation</h5>
+          <p class="light white-text">{{user.get_username}}</p>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'ovulation_list' %}" class="col s12 m6 l4 xl4 gallery-item">
+      <div class="card-panel z-depth-0 blue-grey darken-4">
+        <div class="card-content">
+          <h5 class="card-title white-text">Ovulation</h5>
+          <p class="light white-text">{{user.get_username}}</p>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'intercourse_list' %}" class="col s12 m6 l4 xl4 gallery-item">
+      <div class="card-panel z-depth-0 blue-grey darken-4">
+        <div class="card-content">
+          <h5 class="card-title white-text">Intercourse</h5>
+          <p class="light white-text">{{user.get_username}}</p>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'pregnancy_list' %}" class="col s12 m6 l4 xl4 gallery-item">
+      <div class="card-panel z-depth-0 blue-grey darken-4">
+        <div class="card-content">
+          <h5 class="card-title white-text">Pregnancy</h5>
+          <p class="light white-text">{{user.get_username}}</p>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'menopause_list' %}" class="col s12 m6 l4 xl4 gallery-item">
+      <div class="card-panel z-depth-0 blue-grey darken-4">
+        <div class="card-content">
+          <h5 class="card-title white-text">Menopause</h5>
+          <p class="light white-text">{{user.get_username}}</p>
+        </div>
+      </div>
+    </a>
+    <a href="{% url 'pregnancy_list' %}" class="col s12 m6 l4 xl4 gallery-item">
+      <div class="card-panel z-depth-0 blue-grey darken-4">
+        <div class="card-content">
+          <h5 class="card-title white-text">120</h5>
+          <p class="light white-text">FAQs</p>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+{% endblock %}
+
